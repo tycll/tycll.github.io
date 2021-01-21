@@ -360,16 +360,16 @@
     // <2 start
     s += '<tr>';
     s += '<td>五行：</td>';
-    s += '<td class="small">' + bazi.getYearWuXing() + '</td>';
-    s += '<td class="small">' + bazi.getMonthWuXing() + '</td>';
-    s += '<td class="small">' + bazi.getDayWuXing() + '</td>';
-    s += '<td class="small">' + bazi.getTimeWuXing() + '</td>';
+    s += '<td>' + bazi.getYearWuXing() + '</td>';
+    s += '<td>' + bazi.getMonthWuXing() + '</td>';
+    s += '<td>' + bazi.getDayWuXing() + '</td>';
+    s += '<td>' + bazi.getTimeWuXing() + '</td>';
     if(currentYun){
       s += '<td></td>';
       s += '<td class="small">'+currentYun.daYunWuXing+'</td>';
       s += '<td class="small">'+currentYun.liuNianWuXing+'</td>';
       s += '<td class="small">'+currentYun.liuYueWuXing+'</td>';
-      s += '<td colspan="2"></td>';
+      s += '<td></td>';
     }else{
       s += '<td colspan="6"></td>';
     }
@@ -377,10 +377,10 @@
 
     s += '<tr>';
     s += '<td>地势：</td>';
-    s += '<td class="small">' + bazi.getYearDiShi() + '</td>';
-    s += '<td class="small">' + bazi.getMonthDiShi() + '</td>';
-    s += '<td class="small">' + bazi.getDayDiShi() + '</td>';
-    s += '<td class="small">' + bazi.getTimeDiShi() + '</td>';
+    s += '<td>' + bazi.getYearDiShi() + '</td>';
+    s += '<td>' + bazi.getMonthDiShi() + '</td>';
+    s += '<td>' + bazi.getDayDiShi() + '</td>';
+    s += '<td>' + bazi.getTimeDiShi() + '</td>';
     if(currentYun){
       s += '<td></td>';
       s += '<td class="small">'+currentYun.daYunDiShi+'</td>';
@@ -394,16 +394,16 @@
     
     s += '<tr>';
     s += '<td>长生：</td>';
-    s += '<td class="small">' + getChangSheng(bazi.getYearGan(), lunar.getYearGanIndexExact(), lunar.getYearZhiIndexExact()) + '</td>';
-    s += '<td class="small">' + getChangSheng(bazi.getMonthGan(), lunar.getMonthGanIndexExact(), lunar.getMonthZhiIndexExact()) + '</td>';
-    s += '<td class="small">' + getChangSheng(bazi.getDayGan(), 2 == bazi.getSect() ? lunar.getDayGanIndexExact2() : lunar.getDayGanIndexExact(), 2 == bazi.getSect() ? lunar.getDayZhiIndexExact2() : lunar.getDayZhiIndexExact()) + '</td>';
-    s += '<td class="small">' + getChangSheng(bazi.getTimeGan(), lunar.getTimeGanIndex(), lunar.getTimeZhiIndex()) + '</td>';
+    s += '<td>' + getChangSheng(bazi.getYearGan(), lunar.getYearGanIndexExact(), lunar.getYearZhiIndexExact()) + '</td>';
+    s += '<td>' + getChangSheng(bazi.getMonthGan(), lunar.getMonthGanIndexExact(), lunar.getMonthZhiIndexExact()) + '</td>';
+    s += '<td>' + getChangSheng(bazi.getDayGan(), 2 == bazi.getSect() ? lunar.getDayGanIndexExact2() : lunar.getDayGanIndexExact(), 2 == bazi.getSect() ? lunar.getDayZhiIndexExact2() : lunar.getDayZhiIndexExact()) + '</td>';
+    s += '<td>' + getChangSheng(bazi.getTimeGan(), lunar.getTimeGanIndex(), lunar.getTimeZhiIndex()) + '</td>';
     if(currentYun){
       s += '<td></td>';
       s += '<td class="small">'+currentYun.daYunChangSheng+'</td>';
       s += '<td class="small">'+currentYun.liuNianChangSheng+'</td>';
       s += '<td class="small">'+currentYun.liuYueChangSheng+'</td>';
-      s += '<td colspan="2"></td>';
+      s += '<td></td>';
     }else{
       s += '<td colspan="6"></td>';
     }
@@ -411,10 +411,10 @@
 
     s += '<tr>';
     s += '<td>空亡：</td>';
-    s += '<td class="small">' + bazi.getYearXunKong() + '</td>';
-    s += '<td class="small">' + bazi.getMonthXunKong() + '</td>';
+    s += '<td>' + bazi.getYearXunKong() + '</td>';
+    s += '<td>' + bazi.getMonthXunKong() + '</td>';
     s += '<td class= "red">' + bazi.getDayXunKong() + '</td>';
-    s += '<td class="small">' + bazi.getTimeXunKong() + '</td>';
+    s += '<td>' + bazi.getTimeXunKong() + '</td>';
     s += '<td colspan="6"></td>';
     s += '</tr>';
     
@@ -470,7 +470,7 @@
       }
       s += '</tr>';
       s += '<tr>';
-      s += '<td>运程：</td>';
+      s += '<td>大运：</td>';
       for(var i=0;i<daYunSize;i++){
         var d = daYun[i];
         var ganZhi = d.getGanZhi();
