@@ -41,7 +41,7 @@
     <label><input id="gender_man" type="radio" name="gender" value="+" checked>男</label>
     <label><input id="gender_woman" type="radio" name="gender" value="-">女</label>
     <label><input type="checkbox" id="lunar">阴历</label>
-    <div class="tip">录入一段日期信息到框中，如199908121700+代表1999年8月12日17点生男。<br>1. +表示男，-表示女。<br>2. 三个连续空格表示阴历。<br>3. 月前有空格表示闰月，非闰月不生效。</div>
+    <div class="tip">录入一段日期信息到框中，如199908121700-，代表1999年8月12日17点生女。<br>1. +表示男，-表示女。<br>2. 三个连续空格表示阴历。<br>3. 月前有空格表示闰月，非闰月不生效。</div>
   </div>
   
   <div id="pan"></div>
@@ -219,7 +219,7 @@
     var s = '<table><tbody>';
     s += '<tr>';
     s += '<td>出生：</td>';
-    s += '<td colspan="10" class="left">' + solar.getYear() + '年' + solar.getMonth() + '月' + solar.getDay() + '日(' + lunar.getMonthInChinese() + '月' + lunar.getDayInChinese() + ')' + padding(solar.getHour()) + ':' + padding(solar.getMinute()) +' 星期'+solar.getWeekInChinese()+ '</td>';
+    s += '<td colspan="10" class="left">' + solar.getYear() + '年' + solar.getMonth() + '月' + solar.getDay() + '日(' + lunar.getMonthInChinese() + '月' + lunar.getDayInChinese() + ')' + padding(solar.getHour()) + ':' + padding(solar.getMinute()) +' 星期'+solar.getWeekInChinese() + '生肖' + lunar.getYearShengXiao() + solar.getXingZuo()+'座</td>';
     s += '</tr>';
     
     s += '<tr>';
@@ -376,15 +376,6 @@
     s += '</tr>';
 
     s += '<tr>';
-    s += '<td>空亡：</td>';
-    s += '<td class="small">' + bazi.getYearXunKong() + '</td>';
-    s += '<td class="small">' + bazi.getMonthXunKong() + '</td>';
-    s += '<td class="small">' + bazi.getDayXunKong() + '</td>';
-    s += '<td class="small">' + bazi.getTimeXunKong() + '</td>';
-    s += '<td colspan="6"></td>';
-    s += '</tr>';
-
-    s += '<tr>';
     s += '<td>地势：</td>';
     s += '<td class="small">' + bazi.getYearDiShi() + '</td>';
     s += '<td class="small">' + bazi.getMonthDiShi() + '</td>';
@@ -417,9 +408,40 @@
       s += '<td colspan="6"></td>';
     }
     s += '</tr>';
+
+    s += '<tr>';
+    s += '<td>空亡：</td>';
+    s += '<td class="small">' + bazi.getYearXunKong() + '</td>';
+    s += '<td class="small">' + bazi.getMonthXunKong() + '</td>';
+    s += '<td class= "red">' + bazi.getDayXunKong() + '</td>';
+    s += '<td class="small">' + bazi.getTimeXunKong() + '</td>';
+    s += '<td colspan="6"></td>';
+    s += '</tr>';
+    
+    s += '<tr>';
+    s += '<td>纳音：</td>';
+    s += '<td class="small">' + bazi.getYearNaYin() + '</td>';
+    s += '<td class="small">' + bazi.getMonthNaYin() + '</td>';
+    s += '<td class="small">' + bazi.getDayNaYin() + '</td>';
+    s += '<td class="small">' + bazi.getTimeNaYin() + '</td>';
+    s += '<td colspan="6"></td>';
+    s += '</tr>';
+
     // 2 end>
     
     if(-1!=gender){
+
+      s += '<tr>';
+      s += '<td>胎元：</td>';
+      s += '<td colspan="10" class="left">' + bazi.getTaiYuan() +'('+ bazi.getTaiYuanNaYin() + ')' + '；命宫'+ bazi.getMingGong() +'('+ bazi.getMingGongNaYin() + ')' + '；身宫'+ bazi.getShenGong() +' (' + bazi.getShenGongNaYin() + ')' + '</td>';
+      s += '</tr>';
+
+      s += '<tr>';
+      var d = Lunar.fromDate(new Date());   
+      s += '<td>冲煞：</td>';
+      s += '<td colspan="10" class="left">' + '日冲'+ d.getDayChongDesc() +'；日煞'+ d.getDaySha() + '方' + '；时冲'+ d.getTimeChongDesc() +'；时煞'+ d.getTimeSha() + '方</td>';
+      s += '</tr>';
+      
       s += '<tr>';
       s += '<td>起运：</td>';
       s += '<td colspan="10" class="left">'+startYunSolar.getYear()+'年'+startYunSolar.getMonth()+'月'+startYunSolar.getDay()+'日</td>';
