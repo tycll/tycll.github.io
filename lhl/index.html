@@ -43,8 +43,9 @@
 </head>
 <body>
 <div style="background-color:#eef7f2;" class="article">
-    
+
 <textarea class="md">
+
 ## 老黄历
 
 请填写阳历（公历）时间，默认为当日：
@@ -394,7 +395,7 @@ mdr('.md');
       day = parseInt(day,10);
       var s = Solar.fromYmd(year,month,day);
       var d = s.getLunar();
-      $('#yuexiang').html(d.getYueXiang()+'(天文学中对于地球上看到的月球被太阳照明部分的称呼，即月球位相变化)');
+      $('#yuexiang').html(d.getYueXiang()+' (天文学中对于地球上看到的月球被太阳照亮部分的称呼，即月球位相变化)');
       $('#a').html(d.getYearInGanZhi()+'年 属'+d.getYearShengXiao()+' '+d.getYearNaYin()+' '+LunarUtil.WU_XING_GAN[d.getYearGan()]+LunarUtil.WU_XING_ZHI[d.getYearZhi()]);
       $('#a1').html(d.getMonthInGanZhi()+'月 属'+d.getMonthShengXiao()+' '+d.getMonthNaYin()+' '+LunarUtil.WU_XING_GAN[d.getMonthGan()]+LunarUtil.WU_XING_ZHI[d.getMonthZhi()]);
       $('#a2').html(d.getDayInGanZhi()+'日 属'+d.getDayShengXiao()+' '+d.getDayNaYin()+' '+LunarUtil.WU_XING_GAN[d.getDayGan()]+LunarUtil.WU_XING_ZHI[d.getDayZhi()]);
@@ -408,7 +409,7 @@ mdr('.md');
       $('#js').html(d.getDayJiShen().join(' ')+'(<span style="color:green">宜趋</span>)');
       $('#xs').html(d.getDayXiongSha().join(' ')+'(<span style="color:red">宜避</span>)');
       $('#f').html(d.getSha());
-      $('#fd').html(d.getDaySha()+'方(凶)'+'(<span style="color:red">宜避</span>)');      
+      $('#fd').html(d.getDaySha()+'方(凶)'+'(<span style="color:red">宜避</span>，所值之处忌穿墙凿井、搬迁移徙、修建营造)');      
       $('#g').html(d.getGong()+'方'+d.getXiu()+'(二十八宿)'+d.getZheng()+'(七政)'+d.getAnimal()+'(28种动物)'+' ('+d.getXiuLuck()+')');
       $('#g1').html(d.getXiuSong());
       $('#h').html('阳贵神：'+d.getPositionYangGuiDesc()+d.getDayPositionYangGui()+' ；阴贵神：'+d.getPositionYinGuiDesc()+d.getDayPositionYinGui());
