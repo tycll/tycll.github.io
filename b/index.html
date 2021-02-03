@@ -599,65 +599,7 @@
          }
     }
     s += '<td colspan="10" class="left small">'+(matched.join(' '))+'</td>';
-    
-    s += '<tr>';
-    s += '<td>太岁：</td>';
-    var tsguanxi = {
-	'子子':'值太岁',
-	'丑丑':'值太岁',
-	'寅寅':'值太岁',
-	'卯卯':'值太岁',
-	'巳巳':'值太岁',
-	'未未':'值太岁',
-	'申申':'值太岁',
-	'戌戌':'值太岁',	
-	'子卯':'刑太岁',
-	'辰辰':'刑太岁（值）',
-	'午午':'刑太岁（值）',
-	'酉酉':'刑太岁（值）',
-	'亥亥':'刑太岁（值）',
-	'子午':'冲太岁',
-	'卯酉':'冲太岁',
-	'寅申':'冲太岁',
-	'巳亥':'冲太岁',
-	'辰戌':'冲太岁',
-	'丑未':'冲太岁',
-	'子未':'害太岁',
-	'丑午':'害太岁',
-	'寅巳':'害太岁',
-	'卯辰':'害太岁',
-	'申亥':'害太岁',
-	'酉戌':'害太岁',
-	'子酉':'破太岁',
-	'卯午':'破太岁',
-	'辰丑':'破太岁',
-	'寅亥':'破太岁',	
-	'巳申':'破太岁',
-	'未戌':'破太岁'	
-    };
-    var zhis = [];
-        zhis.push(bazi.getYearZhi());
-        zhis.push(currentYun.liuNianGanZhi.substr(1));         
-
-    var matched=[];
-    var gxs = {};
-    var size=zhis.length;
-        for(var i=0;i<size;i++){
-          for(var j=0;j<size;j++){
-            if(i===j){
-              continue;
-    }
-    var v=tsguanxi[zhis[i]+zhis[j]];
-    if(v){
-      gxs[v] = true;
-        }
-      }
-    }
-    for(var i in gxs){
-     matched.push(i);
-    }
-    s += '<td colspan="10" class="left small">'+(matched.join(' '))+'</td>';
-    s += '</tr>';	  
+	  
 	  
     // 2 end>
     
