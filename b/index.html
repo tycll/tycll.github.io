@@ -472,6 +472,193 @@
     }
     s += '</tr>';
 
+    s += '<tr>';
+    s += '<td>天干：</td>';
+    var tgguanxi = {
+	'甲己':'甲己合土',
+	'乙庚':'乙庚合金',
+	'丙辛':'丙辛合水',
+	'丁壬':'丁壬合木',
+	'戊癸':'戊癸合火',
+	'甲庚':'甲庚相冲',
+	'乙辛':'乙辛相冲',
+	'丙壬':'丙壬相冲',
+	'丁癸':'丁癸相冲' 
+    };
+    var gans = [];
+        gans.push(bazi.getYearGan());
+        gans.push(bazi.getMonthGan());
+        gans.push(bazi.getDayGan());
+        gans.push(bazi.getTimeGan());
+        gans.push(currentYun.daYunGanZhi.substr(0,1));        
+        gans.push(currentYun.liuNianGanZhi.substr(0,1));        
+        gans.push(currentYun.liuYueGanZhi.substr(0,1));        
+        
+    var matched=[];
+    var gxs = {};    
+        var size=gans.length;
+        for(var i=0;i<size;i++){
+          for(var j=0;j<size;j++){
+            if(i===j){
+              continue;
+    }
+    var v=tgguanxi[gans[i]+gans[j]];
+    if(v){
+      gxs[v] = true;
+        }
+      }
+    }
+    for(var i in gxs){
+     matched.push(i);
+    }
+    s += '<td colspan="10" class="left small">'+(matched.join(' '))+'</td>';
+
+    s += '<tr>';
+    s += '<td>地支：</td>';
+    var dzguanxi = {
+	'亥子丑':'亥子丑三会水',
+	'寅卯辰':'寅卯辰三会木',
+	'巳午未':'巳午未三会火',
+	'申酉戌':'申酉戌三会金',
+	'申子辰':'申子辰三合水',
+	'寅午戌':'寅午戌三合火',
+	'亥卯未':'亥卯未三合木',
+	'巳酉丑':'巳酉丑三合金', 
+	'申子':'申子半合水',
+	'子辰':'子辰半合水',	
+	'午戌':'午戌半合火',	
+	'亥卯':'亥卯半合木',
+	'卯未':'卯未半合木',	
+	'酉丑':'酉丑半合金',
+	'寅午':'寅午半合火（暗合土）',
+	'巳酉':'巳酉半合金（暗合水）',	
+	'子巳':'子巳暗合火',
+	'卯申':'卯申暗合金',
+	'亥午':'亥午暗合木', 	
+	'巳申':'巳申六合水',
+	'辰酉':'辰酉六合金',
+	'卯戌':'卯戌六合火',
+	'寅亥':'寅亥六合木(相破)',
+	'子丑':'子丑六合土',
+	'午未':'午未六合火或土',
+	'子卯':'子卯无礼相刑',
+	'丑未戌':'丑未戌恃势之刑',
+	'寅巳申':'寅巳申无恩之刑',	
+	'辰辰':'辰辰自刑',
+	'午午':'午午自刑',
+	'酉酉':'酉酉自刑',
+	'亥亥':'亥亥自刑',
+	'子午':'子午相冲',
+	'卯酉':'卯酉相冲',
+	'寅申':'寅申相冲',
+	'巳亥':'巳亥相冲',
+	'辰戌':'辰戌相冲',
+	'丑未':'丑未相冲',
+	'子未':'子未相害',
+	'丑午':'丑午相害',
+	'寅巳':'寅巳相害',
+	'卯辰':'卯辰相害',
+	'申亥':'申亥相害',
+	'酉戌':'酉戌相害',
+	'子酉':'子酉相破',
+	'卯午':'卯午相破',
+	'辰丑':'辰丑相破',
+	'巳申':'巳申相破',
+	'未戌':'未戌相破'
+    };
+    var zhis = [];
+        zhis.push(bazi.getYearZhi());
+        zhis.push(bazi.getMonthZhi());
+        zhis.push(bazi.getDayZhi());
+        zhis.push(bazi.getTimeZhi());
+        zhis.push(currentYun.daYunGanZhi.substr(1)); 
+        zhis.push(currentYun.liuNianGanZhi.substr(1));         
+        zhis.push(currentYun.liuYueGanZhi.substr(1)); 
+        
+    var matched=[];
+    var gxs = {};
+    var size=zhis.length;
+        for(var i=0;i<size;i++){
+          for(var j=0;j<size;j++){
+            if(i===j){
+              continue;
+    }
+    var v=dzguanxi[zhis[i]+zhis[j]];
+    if(v){
+      gxs[v] = true;
+        }
+      }
+    }
+
+    var matchIndex = 0;
+    for(var i in gxs){
+         matched.push(i);
+         matchIndex ++;
+         if(matchIndex%4==0){
+             matched.push('<br>');
+         }
+    }
+    s += '<td colspan="10" class="left small">'+(matched.join(' '))+'</td>';
+    
+    s += '<tr>';
+    s += '<td>太岁：</td>';
+    var tsguanxi = {
+	'子子':'值太岁',
+	'丑丑':'值太岁',
+	'寅寅':'值太岁',
+	'卯卯':'值太岁',
+	'巳巳':'值太岁',
+	'未未':'值太岁',
+	'申申':'值太岁',
+	'戌戌':'值太岁',	
+	'子卯':'刑太岁',
+	'辰辰':'刑太岁（值）',
+	'午午':'刑太岁（值）',
+	'酉酉':'刑太岁（值）',
+	'亥亥':'刑太岁（值）',
+	'子午':'冲太岁',
+	'卯酉':'冲太岁',
+	'寅申':'冲太岁',
+	'巳亥':'冲太岁',
+	'辰戌':'冲太岁',
+	'丑未':'冲太岁',
+	'子未':'害太岁',
+	'丑午':'害太岁',
+	'寅巳':'害太岁',
+	'卯辰':'害太岁',
+	'申亥':'害太岁',
+	'酉戌':'害太岁',
+	'子酉':'破太岁',
+	'卯午':'破太岁',
+	'辰丑':'破太岁',
+	'寅亥':'破太岁',	
+	'巳申':'破太岁',
+	'未戌':'破太岁'	
+    };
+    var zhis = [];
+        zhis.push(bazi.getYearZhi());
+        zhis.push(currentYun.liuNianGanZhi.substr(1));         
+
+    var matched=[];
+    var gxs = {};
+    var size=zhis.length;
+        for(var i=0;i<size;i++){
+          for(var j=0;j<size;j++){
+            if(i===j){
+              continue;
+    }
+    var v=tsguanxi[zhis[i]+zhis[j]];
+    if(v){
+      gxs[v] = true;
+        }
+      }
+    }
+    for(var i in gxs){
+     matched.push(i);
+    }
+    s += '<td colspan="10" class="left small">'+(matched.join(' '))+'</td>';
+    s += '</tr>';	  
+	  
     // 2 end>
     
     if(-1!=gender){
@@ -483,7 +670,7 @@
 
       s += '<tr>';
       s += '<td>起运：</td>';
-      s += '<td colspan="10" class="left">'+startYunSolar.getYear()+'年'+startYunSolar.getMonth()+'月'+startYunSolar.getDay()+'日</td>';
+      s += '<td colspan="10" class="left small">'+startYunSolar.getYear()+'年'+startYunSolar.getMonth()+'月'+startYunSolar.getDay()+'日</td>';
       s += '</tr>';
       
       s += '<tr>';
