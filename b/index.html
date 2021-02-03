@@ -389,10 +389,10 @@
     
     s += '<tr>';
     s += '<td>五行：</td>';
-    s += '<td>' + bazi.getYearWuXing() + '</td>';
-    s += '<td>' + bazi.getMonthWuXing() + '</td>';
-    s += '<td>' + bazi.getDayWuXing() + '</td>';
-    s += '<td>' + bazi.getTimeWuXing() + '</td>';
+    s += '<td class="small">' + bazi.getYearWuXing() + '</td>';
+    s += '<td class="small">' + bazi.getMonthWuXing() + '</td>';
+    s += '<td class="small">' + bazi.getDayWuXing() + '</td>';
+    s += '<td class="small">' + bazi.getTimeWuXing() + '</td>';
     if(currentYun){
       s += '<td></td>';
       s += '<td class="small">'+currentYun.daYunWuXing+'</td>';
@@ -406,10 +406,10 @@
 
     s += '<tr>';
     s += '<td>地势：</td>';
-    s += '<td>' + bazi.getYearDiShi() + '</td>';
-    s += '<td>' + bazi.getMonthDiShi() + '</td>';
-    s += '<td>' + bazi.getDayDiShi() + '</td>';
-    s += '<td>' + bazi.getTimeDiShi() + '</td>';
+    s += '<td class="small">' + bazi.getYearDiShi() + '</td>';
+    s += '<td class="small">' + bazi.getMonthDiShi() + '</td>';
+    s += '<td class="small">' + bazi.getDayDiShi() + '</td>';
+    s += '<td class="small">' + bazi.getTimeDiShi() + '</td>';
     if(currentYun){
       s += '<td></td>';
       s += '<td class="small">'+currentYun.daYunDiShi+'</td>';
@@ -423,10 +423,10 @@
     
     s += '<tr>';
     s += '<td>长生：</td>';
-    s += '<td>' + getChangSheng(bazi.getYearGan(), lunar.getYearGanIndexExact(), lunar.getYearZhiIndexExact()) + '</td>';
-    s += '<td>' + getChangSheng(bazi.getMonthGan(), lunar.getMonthGanIndexExact(), lunar.getMonthZhiIndexExact()) + '</td>';
-    s += '<td>' + getChangSheng(bazi.getDayGan(), 2 == bazi.getSect() ? lunar.getDayGanIndexExact2() : lunar.getDayGanIndexExact(), 2 == bazi.getSect() ? lunar.getDayZhiIndexExact2() : lunar.getDayZhiIndexExact()) + '</td>';
-    s += '<td>' + getChangSheng(bazi.getTimeGan(), lunar.getTimeGanIndex(), lunar.getTimeZhiIndex()) + '</td>';
+    s += '<td class="small">' + getChangSheng(bazi.getYearGan(), lunar.getYearGanIndexExact(), lunar.getYearZhiIndexExact()) + '</td>';
+    s += '<td class="small">' + getChangSheng(bazi.getMonthGan(), lunar.getMonthGanIndexExact(), lunar.getMonthZhiIndexExact()) + '</td>';
+    s += '<td class="small">' + getChangSheng(bazi.getDayGan(), 2 == bazi.getSect() ? lunar.getDayGanIndexExact2() : lunar.getDayGanIndexExact(), 2 == bazi.getSect() ? lunar.getDayZhiIndexExact2() : lunar.getDayZhiIndexExact()) + '</td>';
+    s += '<td class="small">' + getChangSheng(bazi.getTimeGan(), lunar.getTimeGanIndex(), lunar.getTimeZhiIndex()) + '</td>';
     if(currentYun){
       s += '<td></td>';
       s += '<td class="small">'+currentYun.daYunChangSheng+'</td>';
