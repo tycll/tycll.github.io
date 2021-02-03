@@ -366,6 +366,27 @@
     s += '</tr>';
     
     // <2 start
+ 
+    s += '<tr>';
+    s += '<td>旺衰：</td>';
+    var wxguanxi = {
+	'寅卯':'木旺 火相 水休 金囚 土死',
+	'巳午':'火旺 土相 木休 水囚 金死',
+	'申酉':'金旺 水相 土休 火囚 木死',
+	'亥子':'水旺 木相 金休 土囚 火死',
+	'辰戌丑未':'土旺 金相 火休 木囚 水死'
+    };
+    var monthZhi = bazi.getMonthZhi();
+    var wx = '';
+    for(var i in wxguanxi){
+        if(i.indexOf(monthZhi )>-1){
+            wx = wxguanxi[i];
+            break;
+        }
+    }
+    s += '<td colspan="10" class="left small">' + bazi.getDayGan() + LunarUtil.WU_XING_GAN[bazi.getDayGan()] + '生于' + bazi.getMonthZhi() + '月 ' + wx +'</td>';
+    s += '</tr>';    
+    
     s += '<tr>';
     s += '<td>五行：</td>';
     s += '<td>' + bazi.getYearWuXing() + '</td>';
